@@ -1,4 +1,8 @@
+#Files
 playground.py
+config.py
+
+#Folders
 test_data/
 .idea/
 __pycache__/
