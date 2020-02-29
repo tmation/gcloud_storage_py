@@ -61,14 +61,14 @@ class GCloudStorage(object):
 
         return destination_file_name
 
-    def get_blop_as_df(self, bucket_name, source_blob_name, destination_file_name, delete_file=False):
+    def get_blop_as_df(self, bucket_name, source_blob_name, destination_file_name, delete_file=False, encoding='utf-16'):
         """Returns a blob from the bucket as pandas dataframe."""
         # bucket_name = "your-bucket-name"
         # source_blob_name = "storage-object-name"
         # destination_file_name = "local/path/to/file"
 
         file_name = self.download_blob(bucket_name, source_blob_name, destination_file_name)
-        df = pd.read_csv(file_name)
+        df = pd.read_csv(file_name, encoding=encoding)
 
         if delete_file:
             os.remove(file_name)
